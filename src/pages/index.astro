@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { readFile } from "node:fs/promises";
+import {
+  getAboutMeParagraphs,
+  getCapabilitySections,
+  getLetsGoContent,
+  getWorkRoles
+} from "../lib/siteContent";
+
+const rawContent = await readFile("site-content.md", "utf-8");
+const aboutMeParagraphs = getAboutMeParagraphs(rawContent);
+const letsGoContent = getLetsGoContent(rawContent);
+const workRoles = getWorkRoles(rawContent);
+const capabilitySections = getCapabilitySections(rawContent);
+---
+
+<BaseLayout title="Ashish Gaurav">
+  <section id="about" aria-label="About">
+    <h1>About me</h1>
+    {
+      aboutMeParagraphs.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))
+    }
+  </section>
+
+  <section id="lets-go" aria-label="Let's Go">
+    <h2>About Let's Go</h2>
+    {
+      letsGoContent.paragraphs.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))
+    }
+    {
+      letsGoContent.bullets.length > 0 && (
+        <ul>
+          {letsGoContent.bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+      )
+    }
+    {
+      letsGoContent.externalLink && (
+        <p>
+          External link:{" "}
+          <a href={letsGoContent.externalLink.href} target="_blank" rel="noreferrer">
+            {letsGoContent.externalLink.label}
+          </a>
+        </p>
+      )
+    }
+  </section>
+
+  <section id="work" aria-label="Work">
+    <h2>Work experience</h2>
+    {
+      workRoles.map((role) => (
+        <article class="work-role">
+          <h3>{role.title}</h3>
+          <p class="work-meta">
+            {role.company} | {role.dates} | {role.location}
+          </p>
+          <p>{role.paragraph}</p>
+          <ul>
+            {role.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </section>
+
+  <section id="capabilities" aria-label="Capabilities">
+    <h2>Capabilities</h2>
+    {
+      capabilitySections.map((section) => (
+        <article id={section.id} class="capability-section">
+          <h3>{section.title}</h3>
+          {section.isPlaceholder && <p>Coming soon.</p>}
+          {section.references.length > 0 && (
+            <ul>
+              {section.references.map((reference) => (
+                <li>{reference}</li>
+              ))}
+            </ul>
+          )}
+        </article>
+      ))
+    }
+  </section>
+</BaseLayout>

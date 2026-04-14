@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(command -v nvm)",
+      "Read(//Users/ashishgaurav/.nvm/versions/node/**)",
+      "Read(//opt/homebrew/Cellar/node/25.9.0_2/bin/**)",
+      "Bash(/opt/homebrew/opt/node@25/bin/node --version)"
+    ]
+  }
+}

@@ -1,0 +1,173 @@
+:root {
+  --bg: #fafafa;
+  --text: #1a1a1a;
+  --accent: #1e40af;
+  --content-max-width: 720px;
+  --section-gap: 4.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Source Serif 4", "Source Serif Pro", "Newsreader", Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.002em;
+  opacity: 0;
+  animation: page-fade-in 300ms ease-out forwards;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(250, 250, 250, 0.98);
+  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+.site-nav {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0.8rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+}
+
+.site-nav a {
+  color: var(--text);
+  text-decoration: none;
+  text-underline-offset: 0.14em;
+  transition: color 200ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--accent);
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.14em;
+  transition: color 200ms ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: #1d4ed8;
+}
+
+main {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 0.95rem var(--section-gap);
+}
+
+section {
+  min-height: 1px;
+  padding-top: var(--section-gap);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 1rem;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(1.65rem, 7vw, 2.4rem);
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 5.5vw, 1.8rem);
+  letter-spacing: -0.012em;
+}
+
+p {
+  margin: 0 0 1rem;
+  max-width: 66ch;
+}
+
+.work-role {
+  margin-top: 2.25rem;
+}
+
+.capability-section {
+  margin-top: 2.25rem;
+}
+
+.work-meta {
+  color: rgba(26, 26, 26, 0.8);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 700px) {
+  :root {
+    --section-gap: 6rem;
+  }
+
+  body {
+    font-size: 1.06rem;
+    line-height: 1.72;
+  }
+
+  .site-nav {
+    padding: 0.9rem 1rem;
+    flex-wrap: nowrap;
+    font-size: 0.93rem;
+  }
+
+  main {
+    padding: 0 1rem var(--section-gap);
+  }
+
+  .work-meta {
+    font-size: 0.95rem;
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    animation: none;
+    opacity: 1;
+  }
+}
