@@ -255,10 +255,10 @@ main {
 .hero__title-a,
 .hero__title-b {
   font-family: var(--serif-display);
-  font-size: clamp(72px, 11vw, 160px);
+  font-size: clamp(52px, 7vw, 96px);
   font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
+  letter-spacing: -0.025em;
+  line-height: 1;
   display: block;
 }
 .hero__title-a { color: var(--text); }
