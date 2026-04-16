@@ -17,14 +17,13 @@ linkedin: https://www.linkedin.com/in/ashishgaurav289/
 
 ## about_me
 
-My name is Ashish Gaurav. I'm based in Augsburg and currently enrolled in the Master's International Business & Finance program at TH Augsburg, where I'm focused on M&A, valuations, and corporate finance.
+My name is Ashish Gaurav, and I'm someone who's always been more interested in how things get built than in how they look when they're finished.
 
-Before Germany, I spent four years as a finance analyst — first inside the revenue accounting team at Tata Consultancy Services, supporting Lufthansa's DACH region, and then at American Express Global Business Travel. At Amex I worked closely with senior finance stakeholders on forecasting, variance analysis, and travel spend optimisation, building the reports and trackers they relied on cycle after cycle and managing the relationships that kept those workflows running. Both roles sat inside strict finance and control frameworks for large, regulated clients, and both taught me the same thing in different ways: finance, at its core, is about being able to trace every number back to a source and defend it.
+Finance was where I felt most naturally at home, so that's where I started. I spent four years as an analyst inside two large MNC — first at Tata Consultancy Services (India), supporting the revenue accounting team for Lufthansa's DACH region, and then at American Express GBT (India), working with senior finance stakeholders on forecasting, variance analysis, and travel spend optimisation. What I learned across both roles was less about the technical tools and more about a habit: trace every number back to a source, maintain clean records, build the report in a form the person reading it can actually act on, and keep the relationships with the people who depend on your work close. That discipline is the thing I've carried into everything since.
 
-That same instinct — building structured systems, maintaining clean records, and presenting the answer in a form someone else can act on — is what I've carried into everything since, including a side project I'm building called Let's Go.
+In parallel, I'am very curious about how newer companies — and the newer tools they build with — actually work. I use AI tools daily in the process of building my side project, Let's Go, and I spend a lot of time following what other founders and investors are doing across Europe. That curiosity is what's pulled me toward the venture world: it sits at the intersection of the finance side I've trained in and the founder side I'm learning my way into. My first experince of seeing someone build something was in my bachelor's, as part of a business incubator where I spent my time around early founders, running market research, email marketing, and LinkedIn content for startups in the making.
 
-Outside of finance, I travel whenever I can, and most of what I'm curious about right now lives at the intersection of markets, founders, and how good businesses actually get built.
-
+I am currently doing Master's in International Business & Finance at TH Augsburg, focused on Financial Analysis, Valuations, and corporate finance — and trying to build something useful in the time that's left over.
 ---
 
 ## about_lets_go
@@ -95,6 +94,21 @@ bullets:
 - Built linked P&L, balance sheet, and cash flow projections with assumption-driven scenario logic
 - Diagnosed variances between actuals and plan each round, and revised assumptions accordingly
 - Restructured the Period 1 financial plan after identifying weak underlying assumptions
+
+### role_4
+
+title: Student Associate
+company: Startup Incubator
+dates: Apr 2020 – Jun 2021
+location: Dehradun, India
+
+paragraph:
+My first interaction with the startup world came during my bachelor's degree, when I had the opportunity to work at a technology business incubator run by my university. I even got to work with Sunfox Technologies — now a successful company known for building portable ECG machines — supporting their early growth alongside other ventures in the program. This experience gave me a ground-level view of how startups operate, communicate, and scale.
+
+bullets:
+- Created LinkedIn and Facebook content to build brand presence for incubator startups
+- Executed email marketing campaigns and conducted market research to support founder go-to-market efforts
+- Gained firsthand exposure to startup operations and founder dynamics, seeding my long-term interest in venture capital
 
 ---
 

@@ -29,8 +29,7 @@ function normalizeBlock(text: string): string {
 
 function extractSection(raw: string, sectionName: string): string {
   const pattern = new RegExp(
-    `## ${sectionName}\\n([\\s\\S]*?)(?:\\n---\\n|\\n##\\s|$)`,
-    "m"
+    `## ${sectionName}\\n([\\s\\S]*?)(?:\\n---\\n|\\n##\\s|$)`
   );
   const match = raw.match(pattern);
   return match ? normalizeBlock(match[1]) : "";

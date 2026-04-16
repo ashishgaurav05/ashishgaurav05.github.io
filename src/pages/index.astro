@@ -13,82 +13,149 @@ const aboutMeParagraphs = getAboutMeParagraphs(rawContent);
 const letsGoContent = getLetsGoContent(rawContent);
 const workRoles = getWorkRoles(rawContent);
 const capabilitySections = getCapabilitySections(rawContent);
+
+// Split pillar bullets into bold title + body for the pillar cards
+const pillars = letsGoContent.bullets.map((bullet) => {
+  const match = bullet.match(/^(.+?\.)\s+(.+)$/);
+  return match
+    ? { title: match[1], body: match[2] }
+    : { title: "", body: bullet };
+});
+const letsGoIntro = letsGoContent.paragraphs.slice(0, 3);
+const letsGoOutro = letsGoContent.paragraphs.slice(3);
 ---
 
-<BaseLayout title="Ashish Gaurav">
-  <section id="about" aria-label="About">
-    <h1>About me</h1>
-    {
-      aboutMeParagraphs.map((paragraph) => (
-        <p>{paragraph}</p>
-      ))
-    }
+<BaseLayout title="Ashish Gaurav — Finance analyst">
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__pill reveal">
+      <span class="hero__pulse"></span>
+      <span>Open for Werkstudent roles · Finance &amp; VC · Augsburg</span>
+    </div>
+
+    <h1 class="hero__title reveal">
+      <span class="hero__title-a">Ashish</span>
+      <span class="hero__title-b">Gaurav</span>
+    </h1>
+
+    <p class="hero__lede reveal">
+      Four years as an analyst at <strong>TCS</strong> and <strong>Amex GBT</strong>, now doing an MSc in International Business &amp; Finance at TH Augsburg. The numbers are where I'm trained — but studying how businesses work on paper made me want to try building one, so on the side I'm working on a project called <strong>Let's Go</strong>, a travel community platform I started because the tools I wanted didn't exist.
+    </p>
+
+    <div class="hero__ctas reveal">
+      <a class="btn btn--primary" href="mailto:ashishgaurav2025@gmail.com">Get in touch →</a>
+      <a class="btn btn--outline" href="https://www.linkedin.com/in/ashishgaurav289/" rel="me">LinkedIn ↗</a>
+    </div>
   </section>
 
-  <section id="lets-go" aria-label="Let's Go">
-    <h2>About Let's Go</h2>
-    {
-      letsGoContent.paragraphs.map((paragraph) => (
-        <p>{paragraph}</p>
-      ))
-    }
-    {
-      letsGoContent.bullets.length > 0 && (
-        <ul>
-          {letsGoContent.bullets.map((bullet) => (
-            <li>{bullet}</li>
-          ))}
-        </ul>
-      )
-    }
-    {
-      letsGoContent.externalLink && (
-        <p>
-          External link:{" "}
-          <a href={letsGoContent.externalLink.href} target="_blank" rel="noreferrer">
-            {letsGoContent.externalLink.label}
-          </a>
-        </p>
-      )
-    }
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section__label reveal">
+      <span class="mono-label">01 · About</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-grid__left reveal">
+        {aboutMeParagraphs.map((p) => <p>{p}</p>)}
+      </div>
+      <ul class="facts reveal">
+        <li><span class="k">Name</span><span class="v">Ashish Gaurav</span></li>
+        <li><span class="k">Location</span><span class="v">Augsburg, Germany</span></li>
+        <li><span class="k">Program</span><span class="v">MSc International Business &amp; Finance, TH Augsburg</span></li>
+        <li><span class="k">Focus</span><span class="v">M&amp;A, valuations, corporate finance</span></li>
+        <li><span class="k">Prior</span><span class="v">Amex GBT, TCS (Lufthansa DACH)</span></li>
+        <li><span class="k">Side</span><span class="v">Let's Go — travel knowledge economy</span></li>
+        <li><span class="k">Interests</span><span class="v">Markets, founders, how companies get built</span></li>
+      </ul>
+    </div>
   </section>
 
-  <section id="work" aria-label="Work">
-    <h2>Work experience</h2>
-    {
-      workRoles.map((role) => (
-        <article class="work-role">
+  <!-- LET'S GO (dark feature) -->
+  <section class="lets-go" id="lets-go">
+    <div class="lets-go__inner">
+      <div class="section__label reveal">
+        <span class="mono-label">02 · Side project</span>
+      </div>
+      <h2 class="reveal">
+        Let's <span class="accent">Go</span>.
+      </h2>
+      <p class="section__kicker reveal">
+        A knowledge economy for travellers — pre-MVP, pursuing German non-dilutive grants.
+      </p>
+
+      {letsGoIntro.map((p, i) => (
+        <p
+          class={i === 0 ? "lets-go__hook reveal" : "reveal"}
+          set:html={p.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}
+        />
+      ))}
+
+      <div class="lets-go__pillars">
+        {pillars.map((pillar) => (
+          <div class="pillar reveal">
+            <p>
+              <strong>{pillar.title}</strong> {pillar.body}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {letsGoOutro.map((p) => <p class="lets-go__outro reveal">{p}</p>)}
+
+      {letsGoContent.externalLink && (
+        <a class="lets-go__cta reveal" href={letsGoContent.externalLink.href} target="_blank" rel="noreferrer">
+          {letsGoContent.externalLink.label} →
+        </a>
+      )}
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section" id="work">
+    <div class="section__label reveal">
+      <span class="mono-label">03 · Work</span>
+    </div>
+    <div class="work-grid">
+      {workRoles.map((role, i) => (
+        <article class="card card--tilt reveal">
+          <div class="card__role">Role 0{i + 1}</div>
           <h3>{role.title}</h3>
-          <p class="work-meta">
-            {role.company} | {role.dates} | {role.location}
-          </p>
+          <div class="card__company">{role.company}</div>
+          <div class="card__meta">{role.dates} · {role.location}</div>
           <p>{role.paragraph}</p>
-          <ul>
-            {role.bullets.map((bullet) => (
-              <li>{bullet}</li>
-            ))}
-          </ul>
-        </article>
-      ))
-    }
-  </section>
-
-  <section id="capabilities" aria-label="Capabilities">
-    <h2>Capabilities</h2>
-    {
-      capabilitySections.map((section) => (
-        <article id={section.id} class="capability-section">
-          <h3>{section.title}</h3>
-          {section.isPlaceholder && <p>Coming soon.</p>}
-          {section.references.length > 0 && (
+          {role.bullets.length > 0 && (
             <ul>
-              {section.references.map((reference) => (
-                <li>{reference}</li>
-              ))}
+              {role.bullets.map((b) => <li>{b}</li>)}
             </ul>
           )}
         </article>
-      ))
-    }
+      ))}
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="section" id="capabilities">
+    <div class="section__label reveal">
+      <span class="mono-label">04 · Capabilities</span>
+    </div>
+    <h2 class="reveal">VC-relevant work, <em>in progress</em>.</h2>
+    <p class="section__kicker reveal">
+      Four capability areas, each anchored to a real artifact. Sections marked "Coming soon" are being written.
+    </p>
+
+    <div class="cap-grid">
+      {capabilitySections.map((s, i) => (
+        <article class="cap-card reveal" id={s.id}>
+          <div class="cap-card__num">0{i + 1} / 04</div>
+          <h3>{s.title}</h3>
+          <p>
+            {s.id === "sourcing" && "Anchor artifact: Startup Scout — an AI-powered sourcing and screening tool, hosted separately."}
+            {s.id === "due_diligence" && "Deep-dive analyses: Silverflow, Lio, HW Gründerkapital, plus two others."}
+            {s.id === "valuation_and_financial_analysis" && "TeamViewer SE three-statement DCF, Silverflow comps, Lio scorecard method."}
+            {s.id === "market_and_industry_research" && "Let's Go TAM/SAM/SOM, Pluz.ai competitor analysis, German logistics vertical."}
+          </p>
+          {s.isPlaceholder && <span class="cap-card__soon">Coming soon</span>}
+        </article>
+      ))}
+    </div>
   </section>
 </BaseLayout>

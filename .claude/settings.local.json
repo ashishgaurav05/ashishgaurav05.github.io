@@ -5,7 +5,12 @@
       "Bash(command -v nvm)",
       "Read(//Users/ashishgaurav/.nvm/versions/node/**)",
       "Read(//opt/homebrew/Cellar/node/25.9.0_2/bin/**)",
-      "Bash(/opt/homebrew/opt/node@25/bin/node --version)"
+      "Bash(/opt/homebrew/opt/node@25/bin/node --version)",
+      "Bash(curl -s http://localhost:4321/)",
+      "Bash(grep -oE '<p[^>]*>[^<]{20,120}')",
+      "WebFetch(domain:munotchinmay0-cyber.github.io)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:4321/)",
+      "Bash(gh --version)"
     ]
   }
 }
